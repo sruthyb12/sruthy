@@ -12,8 +12,12 @@
         rel="stylesheet">
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    
 </head>
 
 <body>
@@ -37,6 +41,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">My Intro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="experience.html">Experience</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="services.html">Expertise</a>
@@ -157,63 +164,49 @@
                     </ul>
                 </div>
             </div>
-            <!-- Copyright -->
-            <p class="copy-right-w3 text-white mt-5 pt-4">© 2023 Biodata</p>
+           
         </div>
     </footer>
     <!-- Footer -->
     
-    <script>
-        $("#submit-form").submit((e)=>{
-            e.preventDefault()
-            $.ajax({
-                url:"https://script.google.com/macros/s/AKfycbzZriBw_qrDtmmXJOd0vmWWULLoswe8nZkGQKMogiREo_KWVT3rZniL6tyW-4xYMQRrnQ/exec",
-                data:$("#submit-form").serialize(),
-                method:"post",
-                success:function (response){
-                    alert("Form submitted successfully")
-                    window.location.reload()
-                    //window.location.href="https://google.com"
-                },
-                error:function (err){
-                    alert("Something Error")
+<script>
     
-                }
-            })
-        })
+</script>
+
+
+    
+    <script>
+       $(document).ready(function () {
+
+    $("#submit-form").submit(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbyDL1DtWyQ9zm1VlRJPYLacPy7Cj_5PH2os27ZM5ntDtKTHMpTra2NSzkKV9SrxYnzK3A/exec",
+            type: "POST",
+            data: $(this).serialize(),
+
+            success: function (response) {
+                alert("Message sent successfully!");
+                $("#submit-form")[0].reset();
+            },
+
+            error: function (xhr, status, error) {
+                console.log(xhr.responseText);
+                console.log(status);
+                console.log(error);
+                alert("Error sending message.");
+            }
+        });
+
+    });
+
+});
     </script>
 
 
-  <!--
-    <script>
-        $(document).ready(function () {
-            $('#submit-form').submit(function (e) {
-                e.preventDefault(); // Prevent the form from submitting the traditional way
-
-                $.ajax({
-                    url: 'https://script.google.com/macros/s/AKfycbz5xHUp4qlW8ZagXKkn14GKYO4X-dZj1IjXGKWTaHPLHVr7Zc4thbktFo6Vk7WRTmQ7/exec',
-                    method: 'POST',
-                    data: $(this).serialize(), // Serialize the form data
-                    dataType: 'json', // Specify the expected data type as JSON
-                    crossDomain: true, // Add the crossDomain option
-                    success: function (data) {
-                        console.log('Response Data:', data);
-                        if (data && data.success) {
-                            console.log('Form submitted successfully');
-                            alert('Form submitted successfully');
-                        } else {
-                            console.log('Form submission failed. Error: ' + (data ? data.message : 'Unknown error'));
-                            alert('Form submission failed. Error: ' + (data ? data.message : 'Unknown error'));
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.log('AJAX request failed. Status Code: ' + xhr.status);
-                        alert('AJAX request failed. Please try again later.');
-                    }
-                });
-            });
-        });
-    </script> -->
+  
     
         
    
@@ -245,9 +238,7 @@
     </script>
     <!-- Move top -->
 
-    <!-- Common jQuery plugin -->
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <!-- Common jQuery plugin -->
+
 
     <!-- Theme switch JS (light and dark) -->
     <script src="assets/js/theme-change.js"></script>
